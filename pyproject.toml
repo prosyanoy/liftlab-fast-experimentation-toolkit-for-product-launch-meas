@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=64", "pybind11>=2.12"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "liftlab"
+version = "0.1.0"
+description = "Fast experimentation toolkit for restaurant product-launch measurement"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy", "pandas", "statsmodels", "duckdb", "streamlit"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+liftlab = "liftlab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
